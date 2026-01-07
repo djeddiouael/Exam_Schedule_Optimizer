@@ -208,14 +208,6 @@ src/
 │   ├── schema.sql           Structure complète
 │   ├── data.sql            Données de référence
 │   └── indexes.sql         Optimisations performances
-├── tests/                    # Suite de tests
-│   ├── unit/               Tests unitaires
-│   ├── integration/        Tests d'intégration
-│   └── performance/        Tests de performance
-└── docs/                    # Documentation
-    ├── api/                Documentation API
-    ├── user/               Guide utilisateur
-    └── technical/          Documentation technique
     
 
 ## 🧪 Tests et Qualité
