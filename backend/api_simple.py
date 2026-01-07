@@ -77,9 +77,9 @@ def test():
 if __name__ == '__main__':
     logger.info("Démarrage de l'API simplifiée sur le port 5000")
     print("=" * 50)
-    print("🚀 API SIMPLIFIÉE DÉMARRÉE")
-    print("📡 URL: http://localhost:5000")
-    print("🔗 Endpoints:")
+    print(" API SIMPLIFIÉE DÉMARRÉE")
+    print(" URL: http://localhost:5000")
+    print(" Endpoints:")
     print("   - GET /          : Documentation")
     print("   - GET /health    : Santé de l'API")
     print("   - GET /departements : Liste départements")

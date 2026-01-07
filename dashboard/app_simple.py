@@ -10,7 +10,7 @@ st.set_page_config(
     layout="wide"
 )
 
-st.title("📅 Plateforme d'Optimisation des Examens")
+st.title("Plateforme d'Optimisation des Examens")
 st.markdown("*Version simplifiée - Démonstration*")
 st.markdown("---")
 
@@ -22,11 +22,11 @@ def test_api():
     try:
         response = requests.get(f"{API_URL}/health", timeout=5)
         if response.status_code == 200:
-            return True, "✅ API connectée"
+            return True, "API connectée"
         else:
-            return False, f"❌ API erreur: {response.status_code}"
+            return False, f"API erreur: {response.status_code}"
     except Exception as e:
-        return False, f"❌ API inaccessible: {str(e)}"
+        return False, f"API inaccessible: {str(e)}"
 
 # Vérifier l'API
 st.header("État du système")
@@ -39,10 +39,10 @@ if status_ok:
     
     option = st.selectbox(
         "Choisissez une action:",
-        ["📊 Voir les départements", "📈 Voir les examens", "🔄 Générer un emploi du temps"]
+        ["Voir les départements", "Voir les examens", "Générer un emploi du temps"]
     )
     
-    if option == "📊 Voir les départements":
+    if option == "Voir les départements":
         st.subheader("Liste des départements")
         
         try:
@@ -61,7 +61,7 @@ if status_ok:
         except Exception as e:
             st.error(f"Erreur: {str(e)}")
     
-    elif option == "📈 Voir les examens":
+    elif option == "Voir les examens":
         st.subheader("Examen de démonstration")
         
         # Données de démonstration (simulées)
@@ -82,7 +82,7 @@ if status_ok:
         })
         st.bar_chart(chart_data.set_index('Jour'))
     
-    elif option == "🔄 Générer un emploi du temps":
+    elif option == "Générer un emploi du temps":
         st.subheader("Génération d'emploi du temps (Démo)")
         
         col1, col2 = st.columns(2)
@@ -91,8 +91,8 @@ if status_ok:
         with col2:
             date_fin = st.date_input("Date de fin", datetime(2024, 1, 20))
         
-        if st.button("🚀 Générer (Démo)", type="primary"):
-            st.success(f"✅ Emploi du temps généré du {date_debut} au {date_fin}")
+        if st.button("Générer (Démo)", type="primary"):
+            st.success(f"Emploi du temps généré du {date_debut} au {date_fin}")
             
             # Résultats simulés
             st.info("**Résultats simulés (démonstration):**")
@@ -113,7 +113,7 @@ if status_ok:
 
 else:
     st.error("""
-    ## ⚠️ L'API n'est pas accessible
+    ## L'API n'est pas accessible
     
     **Instructions de dépannage:**
     
@@ -147,7 +147,7 @@ st.markdown(
     """
     <div style='text-align: center'>
         <p>Plateforme d'Optimisation des Emplois du Temps d'Examens • Version Démo</p>
-        <p>📧 Contact: support@exam-optimizer.univ.fr</p>
+        <p>Contact: support@exam-optimizer.univ.fr</p>
     </div>
     """,
     unsafe_allow_html=True

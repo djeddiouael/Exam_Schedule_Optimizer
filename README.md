@@ -216,7 +216,7 @@ src/
     ├── api/                Documentation API
     ├── user/               Guide utilisateur
     └── technical/          Documentation technique
-```
+    
 
 ## 🧪 Tests et Qualité
 - Tests unitaires : 85% de couverture
@@ -278,11 +278,3 @@ Ce projet est développé dans le cadre d'un projet universitaire et est destin�
 
 © 2025 - Tous droits réservés
 
-## 📞 Support
-Pour toute question ou problème :
-
-Email : support@exam-optimizer.univ.fr
-
-Issues : GitHub Issues
-
-Documentation : Consulter la documentation technique

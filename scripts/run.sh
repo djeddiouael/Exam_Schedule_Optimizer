@@ -1,7 +1,7 @@
 #!/bin/bash
 
-echo "🚀 Lancement de la plateforme d'optimisation"
-echo "==========================================="
+echo "Lancement de la plateforme d'optimisation"
+echo "========================================="
 
 # Activer l'environnement virtuel
 if [ -d "venv" ]; then
@@ -9,7 +9,7 @@ if [ -d "venv" ]; then
 fi
 
 # Vérifier les dépendances
-echo "🔍 Vérification des dépendances..."
+echo "Vérification des dépendances..."
 python3 -c "
 import sys
 import pkg_resources
@@ -23,14 +23,14 @@ installed = {pkg.key for pkg in pkg_resources.working_set}
 missing = required - installed
 
 if missing:
-    print(f'❌ Dépendances manquantes: {missing}')
+    print(f'Dépendances manquantes: {missing}')
     sys.exit(1)
 else:
-    print('✅ Toutes les dépendances sont installées')
+    print('Toutes les dépendances sont installées')
 "
 
 # Lancer l'API en arrière-plan
-echo "🌐 Démarrage de l'API Flask..."
+echo "Démarrage de l'API Flask..."
 cd backend
 python api.py &
 API_PID=$!
@@ -40,9 +40,9 @@ cd ..
 sleep 3
 
 # Lancer Streamlit
-echo "📊 Démarrage du dashboard Streamlit..."
+echo "Démarrage du dashboard Streamlit..."
 streamlit run dashboard/app.py
 
 # Nettoyer à la sortie
-echo "🛑 Arrêt des processus..."
+echo "Arrêt des processus..."
 kill $API_PID 2>/dev/null

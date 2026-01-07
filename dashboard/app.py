@@ -57,7 +57,7 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 # Titre principal
-st.markdown('<h1 class="main-header">📅 Plateforme d\'Optimisation des Emplois du Temps d\'Examens Universitaires</h1>', unsafe_allow_html=True)
+st.markdown('<h1 class="main-header"> Plateforme d\'Optimisation des Emplois du Temps d\'Examens Universitaires</h1>', unsafe_allow_html=True)
 st.markdown("---")
 
 # Configuration
@@ -73,59 +73,59 @@ def check_api():
 
 # Sidebar avec sélection de rôle
 with st.sidebar:
-    st.image("https://img.icons8.com/color/96/000000/calendar--v1.png", width=80)
+    # st.image("https://img.icons8.com/color/96/000000/calendar--v1.png", width=80)
     
-    st.markdown("### 👥 Sélection du Rôle")
+    st.markdown("###  Sélection du Rôle")
     role = st.selectbox(
         "Choisissez votre rôle:",
-        ["👨‍🎓 Étudiant/Professeur", "👨‍🏫 Chef de Département", "👔 Administrateur Examens", "🎯 Vice-doyen/Doyen"],
+        [" Étudiant/Professeur", " Chef de Département", " Administrateur Examens", " Vice-doyen/Doyen"],
         index=3
     )
     
     st.markdown("---")
-    st.markdown("### 📊 Navigation")
+    st.markdown("###  Navigation")
     
     # Navigation selon le rôle
-    if role == "👨‍🎓 Étudiant/Professeur":
-        menu = st.radio("Menu", ["📅 Planning Personnel", "🔍 Recherche", "📱 Mobile View"])
-    elif role == "👨‍🏫 Chef de Département":
-        menu = st.radio("Menu", ["🏢 Dashboard Département", "✅ Validation", "📈 Statistiques Département", "⚠️ Conflits par Formation"])
-    elif role == "👔 Administrateur Examens":
-        menu = st.radio("Menu", ["⚡ Génération Automatique", "🔍 Détection Conflits", "📊 Optimisation Ressources", "📋 Gestion Salles"])
-    elif role == "🎯 Vice-doyen/Doyen":
-        menu = st.radio("Menu", ["🌐 Vue Stratégique", "📈 KPIs Académiques", "🏢 Occupation Globale", "✅ Validation Finale"])
+    if role == " Étudiant/Professeur":
+        menu = st.radio("Menu", [" Planning Personnel"])
+    elif role == " Chef de Département":
+        menu = st.radio("Menu", [" Dashboard Département"])
+    elif role == " Administrateur Examens":
+        menu = st.radio("Menu", [" Génération Automatique"])
+    elif role == " Vice-doyen/Doyen":
+        menu = st.radio("Menu", [" Vue Stratégique"])
     
     st.markdown("---")
     
     # Informations système
     if check_api():
-        st.success("✅ API Connectée")
+        st.success(" API Connectée")
     else:
-        st.error("❌ API Déconnectée")
+        st.error(" API Déconnectée")
     
     st.markdown(f"**Rôle actuel:** {role}")
     st.markdown(f"**Date:** {datetime.now().strftime('%d/%m/%Y')}")
     st.markdown(f"**Version:** 2.0.0")
 
 # Contenu principal selon le rôle et le menu
-if role == "🎯 Vice-doyen/Doyen" and menu == "🌐 Vue Stratégique":
-    st.markdown('<h2 class="sub-header">🌐 Vue Stratégique Globale</h2>', unsafe_allow_html=True)
+if role == " Vice-doyen/Doyen" and menu == " Vue Stratégique":
+    st.markdown('<h2 class="sub-header"> Vue Stratégique Globale</h2>', unsafe_allow_html=True)
     
     # Métriques principales
     col1, col2, col3, col4 = st.columns(4)
     with col1:
-        st.metric("🎓 Étudiants", "13,200", "+320")
+        st.metric(" Étudiants", "13,200", "+320")
     with col2:
-        st.metric("🏢 Départements", "7", "0")
+        st.metric(" Départements", "7", "0")
     with col3:
-        st.metric("📚 Formations", "210", "+5")
+        st.metric(" Formations", "210", "+5")
     with col4:
-        st.metric("📅 Examens Planifiés", "1,850", "+120")
+        st.metric(" Examens Planifiés", "1,850", "+120")
     
     st.markdown("---")
     
     # Section 1: Occupation des ressources
-    st.markdown('<h3 class="sub-header">🏢 Occupation des Salles et Amphis</h3>', unsafe_allow_html=True)
+    st.markdown('<h3 class="sub-header"> Occupation des Salles et Amphis</h3>', unsafe_allow_html=True)
     
     col1, col2 = st.columns(2)
     
@@ -160,7 +160,7 @@ if role == "🎯 Vice-doyen/Doyen" and menu == "🌐 Vue Stratégique":
         st.plotly_chart(fig2, use_container_width=True)
     
     # Section 2: Taux de conflits
-    st.markdown('<h3 class="sub-header">⚠️ Taux de Conflits par Département</h3>', unsafe_allow_html=True)
+    st.markdown('<h3 class="sub-header"> Taux de Conflits par Département</h3>', unsafe_allow_html=True)
     
     data_conflits = {
         'Département': ['Informatique', 'Mathématiques', 'Physique', 'Chimie', 'Biologie', 'Économie', 'Droit'],
@@ -178,30 +178,30 @@ if role == "🎯 Vice-doyen/Doyen" and menu == "🌐 Vue Stratégique":
     st.plotly_chart(fig3, use_container_width=True)
     
     # Section 3: KPIs académiques
-    st.markdown('<h3 class="sub-header">📈 KPIs Académiques</h3>', unsafe_allow_html=True)
+    st.markdown('<h3 class="sub-header"> KPIs Académiques</h3>', unsafe_allow_html=True)
     
     col1, col2, col3 = st.columns(3)
     
     with col1:
         st.markdown('<div class="metric-card">', unsafe_allow_html=True)
-        st.metric("⏰ Heures Professeurs", "12,850h", "3.2%")
+        st.metric(" Heures Professeurs", "12,850h", "3.2%")
         st.caption("Total heures de surveillance")
         st.markdown('</div>', unsafe_allow_html=True)
     
     with col2:
         st.markdown('<div class="metric-card">', unsafe_allow_html=True)
-        st.metric("🏫 Taux Salles Utilisées", "78%", "1.5%")
+        st.metric(" Taux Salles Utilisées", "78%", "1.5%")
         st.caption("Salles utilisées / Salles disponibles")
         st.markdown('</div>', unsafe_allow_html=True)
     
     with col3:
         st.markdown('<div class="metric-card">', unsafe_allow_html=True)
-        st.metric("📊 Satisfaction", "92%", "2.1%")
+        st.metric(" Satisfaction", "92%", "2.1%")
         st.caption("Enquête satisfaction professeurs")
         st.markdown('</div>', unsafe_allow_html=True)
     
     # Section 4: Calendrier global
-    st.markdown('<h3 class="sub-header">📅 Calendrier Global des Examens</h3>', unsafe_allow_html=True)
+    st.markdown('<h3 class="sub-header"> Calendrier Global des Examens</h3>', unsafe_allow_html=True)
     
     dates = pd.date_range(start='2024-01-15', end='2024-02-15', freq='D')
     data_calendar = []
@@ -227,7 +227,7 @@ if role == "🎯 Vice-doyen/Doyen" and menu == "🌐 Vue Stratégique":
     st.plotly_chart(fig4, use_container_width=True)
     
     # Section 5: Validation finale
-    st.markdown('<h3 class="sub-header">✅ Validation Finale de l\'Emploi du Temps</h3>', unsafe_allow_html=True)
+    st.markdown('<h3 class="sub-header"> Validation Finale de l\'Emploi du Temps</h3>', unsafe_allow_html=True)
     
     col1, col2 = st.columns(2)
     
@@ -246,28 +246,28 @@ if role == "🎯 Vice-doyen/Doyen" and menu == "🌐 Vue Stratégique":
             st.write(f"- {dept}")
     
     with col2:
-        if st.button("✅ Valider l\'Emploi du Temps Global", type="primary"):
+        if st.button(" Valider l\'Emploi du Temps Global", type="primary"):
             st.success("Emploi du temps validé avec succès!")
             st.balloons()
         
-        if st.button("🔄 Renvoyer pour Modification", type="secondary"):
+        if st.button(" Renvoyer pour Modification", type="secondary"):
             st.warning("Emploi du temps renvoyé pour modifications")
         
         st.download_button(
-            label="📥 Télécharger le Rapport Complet",
+            label=" Télécharger le Rapport Complet",
             data=df_calendar.to_csv(index=False),
             file_name="rapport_global_examens.csv",
             mime="text/csv"
         )
 
-elif role == "👔 Administrateur Examens" and menu == "⚡ Génération Automatique":
+elif role == " Administrateur Examens" and menu == "⚡ Génération Automatique":
     st.markdown('<h2 class="sub-header">⚡ Génération Automatique d\'Emploi du Temps</h2>', unsafe_allow_html=True)
     
     # Paramètres de génération
     col1, col2 = st.columns(2)
     
     with col1:
-        st.markdown("### 📅 Période d\'Examens")
+        st.markdown("###  Période d\'Examens")
         date_debut = st.date_input("Date de début", datetime(2024, 1, 15))
         date_fin = st.date_input("Date de fin", datetime(2024, 1, 31))
         
@@ -275,39 +275,39 @@ elif role == "👔 Administrateur Examens" and menu == "⚡ Génération Automat
         st.info(f"Période: {jours} jours")
     
     with col2:
-        st.markdown("### ⚙️ Paramètres d\'Optimisation")
+        st.markdown("###  Paramètres d\'Optimisation")
         
-        st.slider("📊 Taille de la population", 50, 500, 100, help="Taille de la population pour l\'algorithme génétique")
-        st.slider("🔄 Nombre de générations", 10, 200, 50, help="Nombre d\'itérations pour l\'optimisation")
-        st.number_input("⏱️ Timeout (secondes)", 30, 300, 45, help="Temps maximum d\'exécution")
+        st.slider(" Taille de la population", 50, 500, 100, help="Taille de la population pour l\'algorithme génétique")
+        st.slider(" Nombre de générations", 10, 200, 50, help="Nombre d\'itérations pour l\'optimisation")
+        st.number_input("⏱ Timeout (secondes)", 30, 300, 45, help="Temps maximum d\'exécution")
     
     st.markdown("---")
     
     # Contraintes
-    st.markdown('<h3 class="sub-header">🔒 Contraintes à Appliquer</h3>', unsafe_allow_html=True)
+    st.markdown('<h3 class="sub-header"> Contraintes à Appliquer</h3>', unsafe_allow_html=True)
     
     col1, col2, col3 = st.columns(3)
     
     with col1:
-        st.checkbox("🎓 Étudiants: Max 1 examen/jour", True)
-        st.checkbox("👨‍🏫 Professeurs: Max 3 examens/jour", True)
-        st.checkbox("🏢 Salles: Respect capacité", True)
+        st.checkbox(" Étudiants: Max 1 examen/jour", True)
+        st.checkbox(" Professeurs: Max 3 examens/jour", True)
+        st.checkbox(" Salles: Respect capacité", True)
     
     with col2:
-        st.checkbox("🎯 Priorité département", True)
-        st.checkbox("⚖️ Équité surveillances", True)
-        st.checkbox("⏰ Pas d\'examen le weekend", False)
+        st.checkbox(" Priorité département", True)
+        st.checkbox(" Équité surveillances", True)
+        st.checkbox(" Pas d\'examen le weekend", False)
     
     with col3:
-        st.checkbox("📚 Respect pré-requis", True)
-        st.checkbox("🍽️ Pause déjeuner (12h-14h)", True)
-        st.checkbox("🌙 Pas d\'examen après 18h", True)
+        st.checkbox(" Respect pré-requis", True)
+        st.checkbox(" Pause déjeuner (12h-14h)", True)
+        st.checkbox(" Pas d\'examen après 18h", True)
     
     st.markdown("---")
     
     # Bouton de génération
-    if st.button("🚀 Lancer la Génération Automatique", type="primary", use_container_width=True):
-        with st.spinner("⏳ Génération en cours... Objectif: < 45 secondes"):
+    if st.button(" Lancer la Génération Automatique", type="primary", use_container_width=True):
+        with st.spinner(" Génération en cours... Objectif: < 45 secondes"):
             # Simulation de génération
             import time
             progress_bar = st.progress(0)
@@ -317,18 +317,18 @@ elif role == "👔 Administrateur Examens" and menu == "⚡ Génération Automat
                 time.sleep(0.02)
             
             # Résultats simulés
-            st.success("✅ Génération terminée en 42 secondes!")
+            st.success(" Génération terminée en 42 secondes!")
             
             col1, col2, col3 = st.columns(3)
             with col1:
-                st.metric("📅 Examens planifiés", "1,240")
+                st.metric(" Examens planifiés", "1,240")
             with col2:
-                st.metric("⚠️ Conflits résolus", "156")
+                st.metric(" Conflits résolus", "156")
             with col3:
-                st.metric("🏢 Salles utilisées", "38")
+                st.metric(" Salles utilisées", "38")
             
             # Détails de la génération
-            with st.expander("📋 Détails de la génération"):
+            with st.expander(" Détails de la génération"):
                 st.write("""
                 **Paramètres utilisés:**
                 - Population: 100 individus
@@ -350,14 +350,14 @@ elif role == "👔 Administrateur Examens" and menu == "⚡ Génération Automat
             
             # Téléchargement des résultats
             st.download_button(
-                label="📥 Télécharger l\'emploi du temps (CSV)",
+                label=" Télécharger l\'emploi du temps (CSV)",
                 data=pd.DataFrame({'test': [1, 2, 3]}).to_csv(index=False),
                 file_name=f"emploi_du_temps_{date_debut}_{date_fin}.csv",
                 mime="text/csv"
             )
 
-elif role == "👨‍🏫 Chef de Département" and menu == "🏢 Dashboard Département":
-    st.markdown('<h2 class="sub-header">🏢 Dashboard Département - Informatique</h2>', unsafe_allow_html=True)
+elif role == " Chef de Département" and menu == " Dashboard Département":
+    st.markdown('<h2 class="sub-header"> Dashboard Département - Informatique</h2>', unsafe_allow_html=True)
     
     # Sélection du département
     departement = st.selectbox("Sélectionnez votre département:", 
@@ -366,13 +366,13 @@ elif role == "👨‍🏫 Chef de Département" and menu == "🏢 Dashboard Dép
     # Métriques département
     col1, col2, col3, col4 = st.columns(4)
     with col1:
-        st.metric("🎓 Étudiants", "2,150", "+85")
+        st.metric(" Étudiants", "2,150", "+85")
     with col2:
-        st.metric("📚 Formations", "28", "+2")
+        st.metric(" Formations", "28", "+2")
     with col3:
-        st.metric("📅 Examens", "320", "+25")
+        st.metric(" Examens", "320", "+25")
     with col4:
-        st.metric("⚠️ Conflits", "12", "-3")
+        st.metric(" Conflits", "12", "-3")
     
     st.markdown("---")
     
@@ -407,7 +407,7 @@ elif role == "👨‍🏫 Chef de Département" and menu == "🏢 Dashboard Dép
         st.plotly_chart(fig, use_container_width=True)
     
     # Liste des conflits du département
-    st.markdown('<h3 class="sub-header">⚠️ Conflits à Résoudre</h3>', unsafe_allow_html=True)
+    st.markdown('<h3 class="sub-header"> Conflits à Résoudre</h3>', unsafe_allow_html=True)
     
     conflits_data = {
         'Type': ['Salle', 'Professeur', 'Étudiant', 'Capacité', 'Équipement'],
@@ -419,16 +419,16 @@ elif role == "👨‍🏫 Chef de Département" and menu == "🏢 Dashboard Dép
     st.dataframe(df_conflits_dept, use_container_width=True)
     
     # Validation département
-    st.markdown('<h3 class="sub-header">✅ Validation du Département</h3>', unsafe_allow_html=True)
+    st.markdown('<h3 class="sub-header">Validation du Département</h3>', unsafe_allow_html=True)
     
-    if st.button(f"✅ Valider l\'Emploi du Temps - {departement}", type="primary"):
+    if st.button(f" Valider l\'Emploi du Temps - {departement}", type="primary"):
         st.success(f"Emploi du temps validé pour le département {departement}!")
     
-    if st.button("🔄 Demander des Modifications", type="secondary"):
+    if st.button(" Demander des Modifications", type="secondary"):
         st.warning("Demande de modifications envoyée à l\'administrateur")
 
-elif role == "👨‍🎓 Étudiant/Professeur" and menu == "📅 Planning Personnel":
-    st.markdown('<h2 class="sub-header">📅 Planning Personnel</h2>', unsafe_allow_html=True)
+elif role == " Étudiant/Professeur" and menu == " Planning Personnel":
+    st.markdown('<h2 class="sub-header"> Planning Personnel</h2>', unsafe_allow_html=True)
     
     # Simulation de connexion
     col1, col2 = st.columns(2)
@@ -442,7 +442,7 @@ elif role == "👨‍🎓 Étudiant/Professeur" and menu == "📅 Planning Perso
         else:
             matricule = st.text_input("Identifiant professeur", "P2023001")
     
-    if st.button("🔍 Charger mon planning", type="primary"):
+    if st.button(" Charger mon planning", type="primary"):
         # Données simulées
         if type_utilisateur == "Étudiant":
             st.success(f"Planning chargé pour l\'étudiant {matricule}")
@@ -472,7 +472,7 @@ elif role == "👨‍🎓 Étudiant/Professeur" and menu == "📅 Planning Perso
         
         # Export du planning
         st.download_button(
-            label="📥 Télécharger mon planning (ICS)",
+            label=" Télécharger mon planning (ICS)",
             data="BEGIN:VCALENDAR\nEND:VCALENDAR",
             file_name=f"planning_{matricule}.ics",
             mime="text/calendar"
@@ -484,8 +484,8 @@ st.markdown(
     """
     <div style='text-align: center'>
         <p><strong>Plateforme d'Optimisation des Emplois du Temps d'Examens Universitaires</strong></p>
-        <p>📊 Plus de 13,000 étudiants • 7 départements • 200+ formations • Génération en < 45s</p>
-        <p>📧 Contact: support@exam-optimizer.univ.fr • 📞 +33 1 23 45 67 89</p>
+        <p> Plus de 13,000 étudiants • 7 départements • 200+ formations • Génération en < 45s</p>
+        <p> Contact: support@exam-optimizer.univ.fr • 📞 +33 1 23 45 67 89</p>
     </div>
     """,
     unsafe_allow_html=True
